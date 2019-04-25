@@ -3,34 +3,28 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ul>
-      <li><button v-on:click="onSuppliersListClick">Carte des fournisseurs</button></li>
-      <li><button v-on:click="onMapClick">Liste des fournisseur</button></li>
+      <li><button><router-link to="/mapSuppliers">Carte des fournisseurs</router-link></button></li>
+      <li><button><router-link to="/listSuppliers">Liste des fournisseur</router-link></button></li>
     </ul>
-    <suppliers-list></suppliers-list>
-    <suppliers-map></suppliers-map>
+  <router-view></router-view>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import SuppliersList from './components/SuppliersList'
-import SuppliersMap from './components/SuppliersMap'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter);
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    SuppliersMap,
-    SuppliersList,
+    HelloWorld
+
   },
-  methods: {
-    onMapClick: function () {
-      window.alert('vous avez cliquer sur la carte')
-    },
-    onSuppliersListClick: function () {
-      window.alert('vous avez cliquer sur la liste des fournisseurs')
-    }
-  }
+
 
 }
 </script>
