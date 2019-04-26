@@ -10,22 +10,20 @@
 <script>
     export default {
         name: "Supplier",
-        data: function () {
-            return {
-                name: "Amazon",
-                status: false, // est ce qu'il y a du stock
-                checkedAt: new Date() // date de la dernière mise à jour du stock
+        props: {
+            id: Number,
+            name: String,
+            status: Boolean,
+            checkedAt: Date
+
             }
-
-        }
-
     }
 </script>
 
 <style scoped>
     .perso {
-        border-bottom: 4px solid grey;
-        border-top: 4px solid grey;
+        margin-top: 5px;
+        border: 2px solid grey;
     }
 
     .red {
