@@ -15,8 +15,7 @@
             name: String,
             status: Boolean,
             checkedAt: String
-
-            }
+        }
     }
 </script>
 
@@ -25,12 +24,9 @@
         margin-top: 5px;
         border: 2px solid grey;
     }
-
     .red {
         color: red;
-
     }
-
     .green {
         color: greenyellow;
     }

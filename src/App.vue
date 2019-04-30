@@ -1,22 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld/>
     <ul>
       <li><button><router-link to="/mapSuppliers">Carte des fournisseurs</router-link></button></li>
       <li><button><router-link to="/listSuppliers">Liste des fournisseur</router-link></button></li>
     </ul>
   <router-view></router-view>
+
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+//import Vue from 'vue'
+//import VueRouter from 'vue-router'
 
 
-Vue.use(VueRouter);
+//Vue.use(VueRouter);
 
 
 export default {
@@ -25,7 +26,6 @@ export default {
     HelloWorld
 
   },
-
 
 
 }

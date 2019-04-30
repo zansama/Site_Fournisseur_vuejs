@@ -4,10 +4,8 @@
         <GmapMap class="gmap"
                  :center="{lat:10, lng:10}"
                  :zoom="7"
-
         >
             <GmapMarker
-
                     v-for="supplier of suppliers" v-bind:key="supplier.id"
                     :position="{lat:parseFloat(supplier.latitude), lng:parseFloat(supplier.longitude)}"
                     :clickable="true"
@@ -19,32 +17,16 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import Vuex from 'vuex'
+
     export default {
         name: "SuppliersMap",
+        computed: Vuex.mapState(['suppliers', 'loading']),
         data: function () {
             return {
-                suppliers: [],
-                loading: false,
                 error: null,
             }
         },
-        created() {
-
-            axios
-                .get('https://api-suppliers.herokuapp.com/api/suppliers')
-                .then(response => {
-                    this.suppliers = response.data
-                })
-                .catch(error => {
-                    // eslint-disable-next-line no-console
-                    console.log(error)
-                    this.error = true
-                })
-                .finally(() => this.loading = false)
-
-        }
-
     }
 </script>
 
