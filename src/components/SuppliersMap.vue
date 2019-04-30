@@ -2,8 +2,11 @@
     <div>
         <h1>Carte des Fournisseurs</h1>
         <GmapMap class="gmap"
-                 :center="{lat:10, lng:10}"
-                 :zoom="7"
+                 geo = navigator.geolocation
+                 :center="{lat:currentLocation.lat, lng:currentLocation.lng}"
+                 :zoom="17"
+                 :options="{disableDefaultUI:true}"
+
         >
             <GmapMarker
                     v-for="supplier of suppliers" v-bind:key="supplier.id"
@@ -25,8 +28,23 @@
         data: function () {
             return {
                 error: null,
+                currentLocation : { lat : 0, lng : 0},
+                searchAddressInput: ''
             }
         },
+        mounted : function() {
+            this.geolocation();
+        },
+        methods: {
+            geolocation : function() {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    this.currentLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                });
+            }
+        }
     }
 </script>
 
