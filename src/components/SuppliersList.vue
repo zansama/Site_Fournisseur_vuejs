@@ -36,6 +36,7 @@
                               v-bind:name="supplier.name" v-bind:status="supplier.status"
                               v-bind:checked-at="supplier.checkedAt">
                     </Supplier>
+
                 </div>
             </div>
         </div>
@@ -47,13 +48,14 @@
     import Supplier from './Supplier'
     import Vuex from 'vuex'
 
+
     Vue.use(VueRouter);
 
     export default {
         name: "SuppliersList",
         computed: Vuex.mapState(['suppliers', 'loading']),
         components: {
-            Supplier
+            Supplier,
         },
         data: function () {
             return {

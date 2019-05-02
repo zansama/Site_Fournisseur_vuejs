@@ -4,7 +4,8 @@
     <HelloWorld/>
     <ul>
       <li><button><router-link to="/mapSuppliers">Carte des fournisseurs</router-link></button></li>
-      <li><button><router-link to="/listSuppliers">Liste des fournisseur</router-link></button></li>
+      <li><button><router-link to="/listSuppliers">Liste des fournisseurs</router-link></button></li>
+      <li><button><router-link to="/addSupplier">Nouveau fournisseur</router-link></button></li>
     </ul>
   <router-view></router-view>
 

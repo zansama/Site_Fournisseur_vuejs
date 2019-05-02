@@ -8,6 +8,7 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import AddSupplier from "./components/AddSupplier";
 
 Vue.use(VueAxios, axios);
 
@@ -26,7 +27,8 @@ const store = new Vuex.Store({
             axios.get(URL).then((response) => {
                 // console.log(response.data, this)
                 commit('updateSuppliers', response.data)
-                commit('changeLoadingState', false)
+                commit('changeLoadingState',
+                    false)
             })
         }
     },
@@ -70,7 +72,8 @@ Vue.use(VueRouter);
 const routes = [
     {path: '/mapSuppliers', component: SuppliersMap},
     {path: '/listSuppliers', component: SuppliersList},
-    {path: '/supplier', component: Supplier}
+    {path: '/supplier', component: Supplier},
+    {path: '/addSupplier', component: AddSupplier}
 ];
 
 const router = new VueRouter({
