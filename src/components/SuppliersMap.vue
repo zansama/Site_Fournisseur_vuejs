@@ -34,6 +34,9 @@
         },
         mounted : function() {
             this.geolocation();
+            this.$store.dispatch('loadData'); // dispatch loading
+
+
         },
         methods: {
             geolocation : function() {

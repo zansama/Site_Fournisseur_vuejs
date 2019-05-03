@@ -9,6 +9,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import AddSupplier from "./components/AddSupplier";
+import UpdateSupplier from "./components/UpdateSupplier";
 
 Vue.use(VueAxios, axios);
 
@@ -72,8 +73,10 @@ Vue.use(VueRouter);
 const routes = [
     {path: '/mapSuppliers', component: SuppliersMap},
     {path: '/listSuppliers', component: SuppliersList},
+    {path: '/updateSupplier/:id', component: UpdateSupplier, name: 'Page2'},
     {path: '/supplier', component: Supplier},
-    {path: '/addSupplier', component: AddSupplier}
+    {path: '/addSupplier', component: AddSupplier},
+
 ];
 
 const router = new VueRouter({
@@ -86,10 +89,6 @@ new Vue({
 
     router,
     store,
-    created() {
-        //  console.log(this.$store)
-        this.$store.dispatch('loadData') // dispatch loading
-    },
     render: h => h(App),
 
 }).$mount('#app')

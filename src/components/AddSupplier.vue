@@ -27,7 +27,6 @@
             </div>
             <button @click.prevent="getFormValues()" type="submit" class="btn btn-primary mb-5">Créer</button>
         </form>
-        Output: {{ output }}
     </div>
 </template>
 
@@ -64,7 +63,7 @@
                 this.output.longitude = this.$refs.longitude.value;
                 axios.post('https://api-suppliers.herokuapp.com/api/suppliers',
                     this.output)
-                    .then(res => console.log(res.request.response))
+                    .then(res =>   {this.$router.push('/listSuppliers')})
                     .catch(error => console.log(error))
             }
         }

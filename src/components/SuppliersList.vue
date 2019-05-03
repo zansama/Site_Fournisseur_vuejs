@@ -6,7 +6,6 @@
                 {{ option.text }}
             </option>
         </select>
-        <span>Sélectionné : {{ selected }}</span>
         <div v-if="error">
             <p class="rouge">Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces informations pour le
                 moment. Veuillez réessayer ultérieurement.</p>
@@ -21,21 +20,25 @@
                     v-for="supplier of suppliers" :key="supplier.id">
                 <div v-if="selected === 'A'">
                     <Supplier v-if="supplier.status === true"
-                              v-bind:name="supplier.name" v-bind:status="supplier.status"
+                              v-bind:id="supplier.id" v-bind:name="supplier.name" v-bind:status="supplier.status"
                               v-bind:checked-at="supplier.checkedAt">
                     </Supplier>
+
+
                 </div>
                 <div v-else-if="selected === 'B'">
                     <Supplier v-if="supplier.status === false"
-                              v-bind:name="supplier.name" v-bind:status="supplier.status"
+                              v-bind:id="supplier.id"  v-bind:name="supplier.name" v-bind:status="supplier.status"
                               v-bind:checked-at="supplier.checkedAt">
+
                     </Supplier>
                 </div>
                 <div v-else-if="selected === 'C'">
                     <Supplier
-                              v-bind:name="supplier.name" v-bind:status="supplier.status"
-                              v-bind:checked-at="supplier.checkedAt">
+                            v-bind:id="supplier.id" v-bind:name="supplier.name" v-bind:status="supplier.status"
+                            v-bind:checked-at="supplier.checkedAt">
                     </Supplier>
+
 
                 </div>
             </div>
@@ -67,6 +70,10 @@
                     {text: 'Stock : yes/no', value: 'C'}
                 ]
             }
+        },
+        mounted() {
+            //  console.log(this.$store)
+            this.$store.dispatch('loadData') // dispatch loading
         },
 
     }
