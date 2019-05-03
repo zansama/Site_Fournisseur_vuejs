@@ -28,7 +28,7 @@
                 </div>
                 <div v-else-if="selected === 'B'">
                     <Supplier v-if="supplier.status === false"
-                              v-bind:id="supplier.id"  v-bind:name="supplier.name" v-bind:status="supplier.status"
+                              v-bind:id="supplier.id" v-bind:name="supplier.name" v-bind:status="supplier.status"
                               v-bind:checked-at="supplier.checkedAt">
 
                     </Supplier>
@@ -51,7 +51,6 @@
     import Supplier from './Supplier'
     import Vuex from 'vuex'
 
-
     Vue.use(VueRouter);
 
     export default {
@@ -68,14 +67,17 @@
                     {text: 'Stock : yes', value: 'A'},
                     {text: 'Stock : no', value: 'B'},
                     {text: 'Stock : yes/no', value: 'C'}
-                ]
+                ],
+                supplierSort: {
+                    name: '',
+                    checkedAt: '',
+                    status: ''
+                }
             }
         },
-        mounted() {
-            //  console.log(this.$store)
+        created() {
             this.$store.dispatch('loadData') // dispatch loading
         },
-
     }
 </script>
 
